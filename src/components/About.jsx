@@ -1,4 +1,5 @@
 import React from 'react';
+import aboutImage from '../../assets/b.png';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { Zap, Smartphone, MapPin } from 'lucide-react';
@@ -12,7 +13,7 @@ export function About() {
                 <div className="relative mx-auto w-full max-w-lg">
                     <div className="aspect-[4/5] rounded-[2rem] overflow-hidden bg-gray-100 relative shadow-xl">
                         <img
-                            src="/developer-photo.jpg"
+                            src={aboutImage}
                             alt="Sumanth - Business Website Developer"
                             className="w-full h-full object-cover"
                             onError={(e) => {
@@ -27,11 +28,6 @@ export function About() {
                             <p className="font-bold text-2xl">Sumanth</p>
                             <p className="text-white/80">Freelance Web Developer</p>
                         </div>
-                    </div>
-
-                    <div className="absolute -bottom-8 -right-8 md:-right-12 bg-white p-6 rounded-[2rem] shadow-xl border border-gray-50 flex items-center gap-4 hidden sm:flex">
-                        <h4 className="text-4xl font-extrabold text-accent">5+</h4>
-                        <p className="text-sm text-gray-600 font-medium leading-tight">Years<br />Experience</p>
                     </div>
                 </div>
 
