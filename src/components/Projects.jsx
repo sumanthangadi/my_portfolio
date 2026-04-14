@@ -338,7 +338,7 @@ export function Projects() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={cardOuterClasses}
-                                color="#3b82f6"
+                                color="#1e40af"
                                 thickness={3}
                             >
                                 <div className={cardInnerClasses}>
@@ -354,7 +354,7 @@ export function Projects() {
                             key={index}
                             onClick={() => isFanned && setSelectedProject(project)}
                             className={cardOuterClasses}
-                            color="#3b82f6"
+                            color="#1e40af"
                             thickness={3}
                         >
                             <div className={cardInnerClasses}>
