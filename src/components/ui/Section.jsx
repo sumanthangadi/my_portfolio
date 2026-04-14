@@ -7,8 +7,8 @@ export function Section({
     bg = 'white'
 }) {
     const bgColors = {
-        white: 'bg-white',
-        light: 'bg-gray-50',
+        white: 'bg-transparent',
+        light: 'bg-white/40 backdrop-blur-sm',
         dark: 'bg-primary text-white'
     };
 

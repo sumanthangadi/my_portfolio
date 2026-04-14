@@ -27,7 +27,7 @@ export function Services() {
     ];
 
     return (
-        <Section id="services" bg="white">
+        <Section id="services" bg="light">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Services</h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ export function Services() {
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="group bg-gray-50/50 p-8 rounded-[2rem] border border-gray-100 hover:border-accent/20 hover:bg-white hover:shadow-xl transition-all duration-300"
+                        className="group bg-white/60 backdrop-blur-md p-8 rounded-[2rem] border border-gray-100 hover:border-accent/40 hover:bg-white/80 hover:shadow-xl transition-all duration-300"
                     >
                         <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
                             {service.icon}

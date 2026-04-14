@@ -12,12 +12,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
+import { FloatingBlobs } from './components/FloatingBlobs';
+
 function App() {
     return (
         <Router>
-            <div className="font-sans antialiased text-gray-900 bg-white min-h-screen">
+            <div className="font-sans antialiased text-gray-900 bg-white min-h-screen relative">
+                <FloatingBlobs />
                 <Navbar />
-                <main>
+                <main className="relative z-10">
                     <Routes>
                         <Route path="/" element={
                             <>

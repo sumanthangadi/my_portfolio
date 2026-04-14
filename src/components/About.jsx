@@ -6,7 +6,7 @@ import { Zap, Smartphone, MapPin } from 'lucide-react';
 
 export function About() {
     return (
-        <Section id="about" bg="white">
+        <Section id="about" bg="light">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                 {/* Image Grid Layout */}

@@ -10,3 +10,67 @@
     @apply bg-white text-primary;
   }
 }
+
+@layer utilities {
+  .blob-float-1 {
+    animation: blob-float-1 30s ease-in-out infinite alternate;
+  }
+  .blob-float-2 {
+    animation: blob-float-2 35s ease-in-out infinite alternate-reverse;
+  }
+  .blob-float-3 {
+    animation: blob-float-3 40s ease-in-out infinite alternate;
+  }
+  .blob-float-4 {
+    animation: blob-float-4 45s ease-in-out infinite alternate-reverse;
+  }
+  .blob-float-5 {
+    animation: blob-float-5 38s ease-in-out infinite alternate;
+  }
+  .blob-float-6 {
+    animation: blob-float-6 42s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes blob-float-1 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(30px, -50px) scale(1.1) rotate(45deg); }
+    66% { transform: translate(-20px, 20px) scale(0.9) rotate(-20deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+
+  @keyframes blob-float-2 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-40px, 30px) scale(0.95) rotate(-30deg); }
+    66% { transform: translate(25px, -25px) scale(1.05) rotate(20deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+
+  @keyframes blob-float-3 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(50px, 40px) scale(1.1) rotate(60deg); }
+    66% { transform: translate(-30px, -40px) scale(0.85) rotate(-45deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+
+  @keyframes blob-float-4 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-50px, -30px) scale(1.05) rotate(-50deg); }
+    66% { transform: translate(40px, 50px) scale(0.95) rotate(30deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+  
+  @keyframes blob-float-5 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(40px, -60px) scale(0.9) rotate(25deg); }
+    66% { transform: translate(-50px, 40px) scale(1.15) rotate(-35deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+  
+  @keyframes blob-float-6 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-30px, 50px) scale(1.1) rotate(-40deg); }
+    66% { transform: translate(60px, -30px) scale(0.85) rotate(55deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  }
+}
+

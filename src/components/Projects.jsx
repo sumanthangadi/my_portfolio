@@ -255,7 +255,7 @@ export function Projects() {
     ];
 
     return (
-        <Section id="work" bg="light">
+        <Section id="work" bg="transparent">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">My Work</h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -325,7 +325,7 @@ export function Projects() {
                         </>
                     );
 
-                    const cardClasses = "group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col cursor-pointer";
+                    const cardClasses = "group relative bg-white/60 backdrop-blur-md rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col cursor-pointer";
 
                     if (project.link && project.link !== '#' && !isFanned) {
                         return (

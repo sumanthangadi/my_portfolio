@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export function Hero() {
     return (
-        <section id="home" className="relative pt-32 pb-20 md:pt-48 md:pb-32 min-h-screen flex items-center overflow-hidden bg-gray-50">
+        <section id="home" className="relative pt-32 pb-20 md:pt-48 md:pb-32 min-h-screen flex items-center overflow-hidden bg-transparent">
 
             {/* Decorative Blob Background */}
             <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl rounded-tr-none z-0 hidden md:block"></div>

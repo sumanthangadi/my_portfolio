@@ -4,7 +4,7 @@ export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gray-50 py-12 border-t border-gray-200">
+        <footer className="bg-transparent py-12 border-t border-gray-200 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center space-y-6">
                 <a href="#home" className="text-2xl font-bold tracking-tight text-primary">
                     Sumanth<span className="text-accent">.</span>

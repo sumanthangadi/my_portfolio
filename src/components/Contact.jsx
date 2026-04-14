@@ -64,7 +64,7 @@ export function Contact() {
     };
 
     return (
-        <Section id="contact" bg="light" className="relative pb-32">
+        <Section id="contact" bg="transparent" className="relative pb-32">
             <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
 
                 {/* Contact Info */}
@@ -81,7 +81,7 @@ export function Contact() {
                             href="https://wa.me/919343337788?text=Hi%20Sumanth%2C%20I%20want%20a%20website%20for%20my%20business."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
+                            className="flex items-center p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
                         >
                             <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
                                 <MessageCircle size={28} />
@@ -97,7 +97,7 @@ export function Contact() {
 
                         <a
                             href="mailto:sumanthangadi7@gmail.com"
-                            className="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
+                            className="flex items-center p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
                         >
                             <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
                                 <Mail size={28} />
@@ -111,7 +111,7 @@ export function Contact() {
                 </div>
 
                 {/* Contact Form Placeholder */}
-                <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-xl border border-gray-100 relative max-w-lg w-full mx-auto lg:ml-auto">
+                <div className="bg-white/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] shadow-xl border border-gray-100 relative max-w-lg w-full mx-auto lg:ml-auto">
                     <div className="absolute top-0 right-0 -mr-6 -mt-6 w-24 h-24 bg-accent/20 rounded-full blur-2xl z-0"></div>
 
                     <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>
