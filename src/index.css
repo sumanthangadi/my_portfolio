@@ -12,22 +12,22 @@
 }
 
 .blob-float-1 {
-  animation: blob-float-1 15s ease-in-out infinite alternate;
+  animation: blob-float-1 8s ease-in-out infinite alternate;
 }
 .blob-float-2 {
-  animation: blob-float-2 18s ease-in-out infinite alternate-reverse;
+  animation: blob-float-2 10s ease-in-out infinite alternate-reverse;
 }
 .blob-float-3 {
-  animation: blob-float-3 20s ease-in-out infinite alternate;
+  animation: blob-float-3 12s ease-in-out infinite alternate;
 }
 .blob-float-4 {
-  animation: blob-float-4 17s ease-in-out infinite alternate-reverse;
+  animation: blob-float-4 9s ease-in-out infinite alternate-reverse;
 }
 .blob-float-5 {
-  animation: blob-float-5 22s ease-in-out infinite alternate;
+  animation: blob-float-5 13s ease-in-out infinite alternate;
 }
 .blob-float-6 {
-  animation: blob-float-6 19s ease-in-out infinite alternate-reverse;
+  animation: blob-float-6 11s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes blob-float-1 {

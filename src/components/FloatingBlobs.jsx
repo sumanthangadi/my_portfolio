@@ -70,7 +70,7 @@ export function FloatingBlobs() {
             top: blob.initialY,
             width: blob.size,
             height: blob.size,
-            filter: 'blur(40px)',
+            filter: 'blur(15px)',
             opacity: blob.opacity,
             willChange: 'transform',
           }}
