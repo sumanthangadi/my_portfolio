@@ -33,7 +33,7 @@ export function Hero() {
                             <img
                                 src={borderedImage}
                                 alt="Background effect"
-                                className="absolute w-full h-auto object-cover object-top z-0 scale-110 translate-x-4 -translate-y-4"
+                                className="absolute w-full h-auto object-cover object-top z-0 scale-105 translate-x-4 -translate-y-4"
                             />
                             <img
                                 src={profileImage}
@@ -73,7 +73,7 @@ export function Hero() {
                         <img
                             src={borderedImage}
                             alt="Background effect"
-                            className="absolute w-full h-auto object-cover object-top z-0 scale-110 translate-x-4 -translate-y-4"
+                            className="absolute w-full h-auto object-cover object-top z-0 scale-105 translate-x-4 -translate-y-4"
                         />
                         <img
                             src={profileImage}
