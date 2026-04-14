@@ -63,11 +63,11 @@ export function Hero() {
 
                 {/* Right Image/Illustration — behind the SVG blob */}
                 <div className="relative mx-auto w-full max-w-md lg:max-w-lg hidden md:block z-[5]">
-                    <div className="relative overflow-visible flex justify-center items-center">
+                    <div className="relative overflow-hidden flex justify-center items-center rounded-3xl border-4 border-accent shadow-xl bg-white/20 backdrop-blur-sm pt-3 px-3 pb-0">
                         <img
                             src={profileImage}
                             alt="Sumanth - Freelance Developer"
-                            className="w-full h-auto object-cover object-top"
+                            className="w-full h-auto object-cover object-top rounded-t-2xl rounded-b-xl shadow-sm"
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
