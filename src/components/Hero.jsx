@@ -28,11 +28,11 @@ export function Hero() {
 
                     {/* Mobile Image (hidden on desktop) */}
                     <div className="relative mx-auto w-full max-w-xs block md:hidden pt-4 pb-0">
-                        <div className="relative overflow-hidden flex justify-center items-center rounded-3xl border-4 border-accent shadow-xl bg-white/20 backdrop-blur-sm pt-2 px-2 pb-0">
+                        <div className="relative overflow-hidden flex justify-center items-center">
                             <img
                                 src={profileImage}
                                 alt="Sumanth - Freelance Developer"
-                                className="w-full h-auto object-cover object-top rounded-t-2xl rounded-b-xl"
+                                className="w-full h-auto object-cover object-top"
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
