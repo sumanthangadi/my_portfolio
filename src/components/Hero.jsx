@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImage from '../../assets/borderedpng';
+import profileImage from '../../assets/bordered.png';
 import { Button } from './ui/Button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
