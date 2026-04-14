@@ -1,18 +1,17 @@
 import React from 'react';
-import './StarBorder.css';
 
 const StarBorder = ({
-  as: Component = 'button',
+  as: Component = 'div',
   className = '',
-  color = 'white',
+  color = '#d97706',
   speed = '6s',
-  thickness = 1,
+  thickness = 3,
   children,
   ...rest
 }) => {
   return (
     <Component
-      className={`star-border-container ${className}`}
+      className={`relative overflow-hidden ${className}`}
       style={{
         padding: `${thickness}px`,
         ...rest.style
@@ -20,20 +19,16 @@ const StarBorder = ({
       {...rest}
     >
       <div
-        className="border-gradient-bottom"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square z-0 animate-spin"
         style={{
-          background: `radial-gradient(ellipse 50% 50% at center, ${color} 0%, transparent 60%)`,
+          background: `conic-gradient(from 0deg, transparent 70%, ${color} 100%)`,
           animationDuration: speed
         }}
       ></div>
-      <div
-        className="border-gradient-top"
-        style={{
-          background: `radial-gradient(ellipse 50% 50% at center, ${color} 0%, transparent 60%)`,
-          animationDuration: speed
-        }}
-      ></div>
-      <div className="inner-content">{children}</div>
+      
+      <div className="relative w-full h-full flex flex-col z-10 rounded-[calc(2rem-3px)] overflow-hidden bg-white">
+        {children}
+      </div>
     </Component>
   );
 };
