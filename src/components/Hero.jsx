@@ -16,7 +16,7 @@ export function Hero() {
             <svg
                 viewBox="0 0 1440 600"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute bottom-0 left-0 w-full h-[85%] z-0"
+                className="absolute bottom-0 left-0 w-full h-[85%] z-10 pointer-events-none hidden md:block"
                 preserveAspectRatio="none"
             >
                 <defs>
@@ -37,20 +37,20 @@ export function Hero() {
                 />
             </svg>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid md:grid-cols-2 gap-12 lg:gap-8 items-center">
 
                 {/* Left Content */}
-                <div className="space-y-8 max-w-2xl">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-tight">
-                        Get Your Business Website in <span className="text-accent">3–5 Days</span>
+                <div className="space-y-4 md:space-y-8 max-w-2xl relative">
+                    <h1 className="relative z-20 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-tight">
+                        Get Your Website / <span className="text-accent">Mobile App</span> in 3–5 Days
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-600 max-w-lg leading-relaxed">
+                    <p className="relative z-20 text-xl md:text-2xl text-gray-600 max-w-lg leading-relaxed">
                         Fast, mobile-first, and built to attract more customers.
                     </p>
 
                     {/* Mobile Image (hidden on desktop) */}
-                    <div className="relative mx-auto w-full max-w-xs block md:hidden pt-4 pb-2">
+                    <div className="relative mx-auto w-full max-w-xs block md:hidden pt-4 pb-0">
                         <div className="relative overflow-hidden flex justify-center items-center">
                             <img
                                 src={profileImage}
@@ -58,43 +58,42 @@ export function Hero() {
                                 className="w-full h-auto object-cover object-top"
                                 onError={(e) => {
                                     e.target.onerror = null;
-                                    e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"; // Fallback placeholder
+                                    e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
                                 }}
                             />
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <div className="relative z-20 flex flex-col sm:flex-row gap-4 !-mt-2 md:!mt-0 md:pt-4">
                         <a href="#work">
                             <Button variant="primary" className="w-full sm:w-auto text-lg py-4 px-8 group">
                                 View My Work
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </a>
-                        <a href="#contact">
+                        <a href="https://wa.me/919343337788?text=Hi%20Sumanth%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer">
                             <Button variant="outline" className="w-full sm:w-auto text-lg py-4 px-8">
                                 Let's Talk
                             </Button>
                         </a>
                     </div>
 
-                    <div className="pt-2 flex items-center space-x-2 text-sm text-gray-500 font-medium">
+                    <div className="relative z-20 pt-2 flex items-center space-x-2 text-sm text-gray-500 font-medium">
                         <span className="text-xl">⚡</span>
-                        <span>Websites delivered in 3–5 days</span>
+                        <span>Delivered in 3–5 days</span>
                     </div>
                 </div>
 
-                {/* Right Image/Illustration placeholder mapped to provided asset */}
-                <div className="relative mx-auto w-full max-w-md lg:max-w-lg hidden md:block">
-                    <div className="relative overflow-hidden flex justify-center items-center">
-                        {/* The provided man photo asset should go here. Setting up a placeholder if asset is missing, but simulating the image. */}
+                {/* Right Image/Illustration — behind the SVG blob */}
+                <div className="relative mx-auto w-full max-w-md lg:max-w-lg hidden md:block z-[5]">
+                    <div className="relative overflow-visible flex justify-center items-center">
                         <img
                             src={profileImage}
                             alt="Sumanth - Freelance Developer"
                             className="w-full h-auto object-cover object-top"
                             onError={(e) => {
                                 e.target.onerror = null;
-                                e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"; // Fallback placeholder
+                                e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
                             }}
                         />
                     </div>

@@ -38,29 +38,32 @@ export function About() {
                         <p className="text-lg text-gray-600 leading-relaxed mb-4">
                             I specialize in helping local businesses establish a powerful, professional online presence. With a deep understanding of what drives conversions, I craft websites that not only look fantastic but actively work to bring more customers through your door.
                         </p>
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-lg text-gray-600 leading-relaxed mb-4">
                             When business owners choose to work with me, they get more than just code. They get a partner invested in their growth, dedicated to fast turnarounds and hassle-free communication.
                         </p>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4 py-6 border-y border-gray-100">
-                        <div className="flex items-center gap-3">
-                            <div className="bg-yellow-50 text-accent p-2 rounded-xl">
-                                <Zap className="w-5 h-5" />
+                    <div className="py-6 border-y border-gray-100">
+                        <h2 className="text-2xl font-bold text-primary mb-6">Skills</h2>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="bg-yellow-50 text-accent p-2 rounded-xl">
+                                    <Zap className="w-5 h-5" />
+                                </div>
+                                <span className="font-semibold text-primary">Fast Delivery</span>
                             </div>
-                            <span className="font-semibold text-primary">Fast Delivery</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="bg-yellow-50 text-accent p-2 rounded-xl">
-                                <Smartphone className="w-5 h-5" />
+                            <div className="flex items-center gap-3">
+                                <div className="bg-yellow-50 text-accent p-2 rounded-xl">
+                                    <Smartphone className="w-5 h-5" />
+                                </div>
+                                <span className="font-semibold text-primary">Mobile-First Design</span>
                             </div>
-                            <span className="font-semibold text-primary">Mobile-First Design</span>
-                        </div>
-                        <div className="flex items-center gap-3 sm:col-span-2">
-                            <div className="bg-yellow-50 text-accent p-2 rounded-xl">
-                                <MapPin className="w-5 h-5" />
+                            <div className="flex items-center gap-3 sm:col-span-2">
+                                <div className="bg-yellow-50 text-accent p-2 rounded-xl">
+                                    <MapPin className="w-5 h-5" />
+                                </div>
+                                <span className="font-semibold text-primary">Dedicated to Local Businesses</span>
                             </div>
-                            <span className="font-semibold text-primary">Dedicated to Local Businesses</span>
                         </div>
                     </div>
 

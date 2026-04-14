@@ -8,20 +8,34 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
+
 function App() {
     return (
-        <div className="font-sans antialiased text-gray-900 bg-white min-h-screen">
-            <Navbar />
-            <main>
-                <Hero />
-                <Projects />
-                <Services />
-                <Process />
-                <About />
-                <Contact />
-            </main>
-            <Footer />
-        </div>
+        <Router>
+            <div className="font-sans antialiased text-gray-900 bg-white min-h-screen">
+                <Navbar />
+                <main>
+                    <Routes>
+                        <Route path="/" element={
+                            <>
+                                <Hero />
+                                <Projects />
+                                <Services />
+                                <Process />
+                                <About />
+                                <Contact />
+                            </>
+                        } />
+                        <Route path="/projects" element={<ProjectsPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </Router>
     );
 }
 

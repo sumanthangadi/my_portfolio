@@ -70,9 +70,9 @@ export function Contact() {
                 {/* Contact Info */}
                 <div className="space-y-8">
                     <div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Let's Work Together</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Contact</h2>
                         <p className="text-xl text-gray-600 leading-relaxed">
-                            Ready to take your local business to the next level? Get in touch today for a free consultation and personalized quote.
+                            Ready to collaborate on your next project? Get in touch today for a free consultation.
                         </p>
                     </div>
 
