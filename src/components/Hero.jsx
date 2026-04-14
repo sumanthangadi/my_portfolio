@@ -1,7 +1,7 @@
 import React from 'react';
-import profileImage from '../../assets/a.png';
-import borderedImage from '../../assets/bordered.png';
-import mobileImage from '../../assets/mobile.png';
+import profileImage from '../assets/a.png';
+import borderedImage from '../assets/bordered.png';
+import mobileImage from '../assets/mobile.png';
 import { Button } from './ui/Button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
