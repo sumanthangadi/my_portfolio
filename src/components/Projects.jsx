@@ -326,8 +326,8 @@ export function Projects() {
                         </>
                     );
 
-                    const cardOuterClasses = "group w-full h-full relative rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden";
-                    const cardInnerClasses = "w-full h-full bg-white flex flex-col z-10 overflow-hidden";
+                    const cardOuterClasses = "group w-full h-full relative rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer";
+                    const cardInnerClasses = "w-full h-full bg-transparent flex flex-col overflow-hidden";
 
                     if (project.link && project.link !== '#' && !isFanned) {
                         return (
