@@ -12,30 +12,7 @@ export function Hero() {
 
             <div className="absolute bottom-0 right-10 w-[500px] h-[500px] bg-yellow-100/50 rounded-full blur-3xl z-0 hidden md:block"></div>
 
-            {/* Smooth amber SVG blob at bottom for accent */}
-            <svg
-                viewBox="0 0 1440 600"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute bottom-0 left-0 w-full h-[85%] z-10 pointer-events-none hidden md:block"
-                preserveAspectRatio="none"
-            >
-                <defs>
-                    <linearGradient id="amberGradient" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stopColor="#FBBF24" />
-                        <stop offset="100%" stopColor="#F59E0B" />
-                    </linearGradient>
-                </defs>
 
-                <path
-                    fill="url(#amberGradient)"
-                    d="M0,500
-                       C260,380 520,320 780,360
-                       C1040,400 1220,300 1440,240
-                       L1440,600
-                       L0,600
-                       Z"
-                />
-            </svg>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid md:grid-cols-2 gap-12 lg:gap-8 items-center">
 
