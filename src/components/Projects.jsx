@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
+import StarBorder from './StarBorder';
 import { ExternalLink, X, ShoppingCart, TrendingUp, Users, ShieldCheck, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 const FannedCards = ({ images }) => {
@@ -325,30 +326,41 @@ export function Projects() {
                         </>
                     );
 
-                    const cardClasses = "group relative bg-white/60 backdrop-blur-md rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col cursor-pointer";
+                    const cardOuterClasses = "group w-full h-full relative rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer";
+                    const cardInnerClasses = "w-full h-full bg-white/60 backdrop-blur-md flex flex-col border border-gray-100/50";
 
                     if (project.link && project.link !== '#' && !isFanned) {
                         return (
-                            <a
+                            <StarBorder
+                                as="a"
                                 key={index}
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={cardClasses}
+                                className={cardOuterClasses}
+                                color="#d97706"
+                                thickness={2}
                             >
-                                {CardContent}
-                            </a>
+                                <div className={cardInnerClasses}>
+                                    {CardContent}
+                                </div>
+                            </StarBorder>
                         );
                     }
 
                     return (
-                        <div
+                        <StarBorder
+                            as="div"
                             key={index}
                             onClick={() => isFanned && setSelectedProject(project)}
-                            className={cardClasses}
+                            className={cardOuterClasses}
+                            color="#d97706"
+                            thickness={2}
                         >
-                            {CardContent}
-                        </div>
+                            <div className={cardInnerClasses}>
+                                {CardContent}
+                            </div>
+                        </StarBorder>
                     );
                 })}
             </div>
