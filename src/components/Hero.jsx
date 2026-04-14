@@ -1,5 +1,6 @@
 import React from 'react';
 import profileImage from '../../assets/a.png';
+import borderedImage from '../../assets/bordered.png';
 import { Button } from './ui/Button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
@@ -30,9 +31,14 @@ export function Hero() {
                     <div className="relative mx-auto w-full max-w-xs block md:hidden pt-4 pb-0">
                         <div className="relative overflow-hidden flex justify-center items-center">
                             <img
+                                src={borderedImage}
+                                alt="Background effect"
+                                className="absolute w-full h-auto object-cover object-top z-0"
+                            />
+                            <img
                                 src={profileImage}
                                 alt="Sumanth - Freelance Developer"
-                                className="w-full h-auto object-cover object-top"
+                                className="relative w-full h-auto object-cover object-top z-10"
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
@@ -65,9 +71,14 @@ export function Hero() {
                 <div className="relative mx-auto w-full max-w-md lg:max-w-lg hidden md:block z-[5]">
                     <div className="relative overflow-hidden flex justify-center items-center rounded-3xl border-4 border-accent shadow-xl bg-white/20 backdrop-blur-sm pt-3 px-3 pb-0">
                         <img
+                            src={borderedImage}
+                            alt="Background effect"
+                            className="absolute w-full h-auto object-cover object-top z-0 bottom-0 pt-3 px-3"
+                        />
+                        <img
                             src={profileImage}
                             alt="Sumanth - Freelance Developer"
-                            className="w-full h-auto object-cover object-top rounded-t-2xl rounded-b-xl shadow-sm"
+                            className="relative w-full h-auto object-cover object-top rounded-t-2xl rounded-b-xl shadow-sm z-10"
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
