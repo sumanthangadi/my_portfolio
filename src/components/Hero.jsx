@@ -1,6 +1,7 @@
 import React from 'react';
 import profileImage from '../../assets/a.png';
 import borderedImage from '../../assets/bordered.png';
+import mobileImage from '../../assets/mobile.png';
 import { Button } from './ui/Button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
@@ -31,14 +32,9 @@ export function Hero() {
                     <div className="relative mx-auto w-full max-w-xs block md:hidden pt-4 pb-0">
                         <div className="relative overflow-hidden flex justify-center items-center">
                             <img
-                                src={borderedImage}
-                                alt="Background effect"
-                                className="absolute w-full h-auto object-cover object-top z-0 -translate-y-2"
-                            />
-                            <img
-                                src={profileImage}
+                                src={mobileImage}
                                 alt="Sumanth - Freelance Developer"
-                                className="relative w-full h-auto object-cover object-top z-10"
+                                className="w-full h-auto object-cover object-top"
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
