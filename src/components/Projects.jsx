@@ -326,8 +326,8 @@ export function Projects() {
                         </>
                     );
 
-                    const cardOuterClasses = "group w-full h-full relative rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer";
-                    const cardInnerClasses = "w-full h-full bg-white/60 backdrop-blur-md flex flex-col border border-gray-100/50";
+                    const cardOuterClasses = "group w-full h-full relative rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer overflow-hidden";
+                    const cardInnerClasses = "w-full h-full bg-white flex flex-col z-10 overflow-hidden";
 
                     if (project.link && project.link !== '#' && !isFanned) {
                         return (
@@ -339,7 +339,7 @@ export function Projects() {
                                 rel="noopener noreferrer"
                                 className={cardOuterClasses}
                                 color="#d97706"
-                                thickness={2}
+                                thickness={3}
                             >
                                 <div className={cardInnerClasses}>
                                     {CardContent}
@@ -355,7 +355,7 @@ export function Projects() {
                             onClick={() => isFanned && setSelectedProject(project)}
                             className={cardOuterClasses}
                             color="#d97706"
-                            thickness={2}
+                            thickness={3}
                         >
                             <div className={cardInnerClasses}>
                                 {CardContent}
