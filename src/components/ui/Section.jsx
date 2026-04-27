@@ -15,7 +15,7 @@ export function Section({
     return (
         <section
             id={id}
-            className={`py-20 md:py-28 ${bgColors[bg]} ${className}`}
+            className={`py-20 md:py-28 w-full overflow-hidden ${bgColors[bg]} ${className}`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {children}

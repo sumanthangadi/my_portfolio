@@ -17,7 +17,7 @@ import { FloatingBlobs } from './components/FloatingBlobs';
 function App() {
     return (
         <Router>
-            <div className="font-sans antialiased text-gray-900 bg-white min-h-screen relative">
+            <div className="font-sans antialiased text-gray-900 bg-white min-h-screen relative overflow-x-hidden">
                 <FloatingBlobs />
                 <Navbar />
                 <main className="relative z-10">
