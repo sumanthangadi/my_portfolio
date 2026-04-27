@@ -78,7 +78,7 @@ export function Contact() {
 
                     <div className="space-y-6">
                         <a
-                            href="https://wa.me/919343337788?text=Hi%20Sumanth%2C%20I%20want%20a%20website%20for%20my%20business."
+                            href="https://wa.me/919343337788?text=Hay%20Sumanth%2C%20Let%27s%20work%20together."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"

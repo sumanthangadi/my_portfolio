@@ -69,7 +69,7 @@ export function Navbar() {
                                 <NavItem key={link.name} link={link} />
                             ))}
                         </div>
-                        <a href="https://wa.me/919343337788?text=Hi%20Sumanth%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/919343337788?text=Hay%20Sumanth%2C%20Let%27s%20work%20together." target="_blank" rel="noopener noreferrer">
                             <Button variant="primary">Let's Talk</Button>
                         </a>
                     </div>
@@ -93,7 +93,7 @@ export function Navbar() {
                         <NavItem key={link.name} link={link} mobile={true} />
                     ))}
                     <div className="pt-4 border-t border-gray-100">
-                        <a href="https://wa.me/919343337788?text=Hi%20Sumanth%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                        <a href="https://wa.me/919343337788?text=Hay%20Sumanth%2C%20Let%27s%20work%20together." target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
                             <Button variant="primary" className="w-full">Let's Talk</Button>
                         </a>
                     </div>

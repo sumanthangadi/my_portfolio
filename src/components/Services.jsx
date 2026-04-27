@@ -29,8 +29,8 @@ export function Services() {
     return (
         <Section id="services" bg="light">
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Services</h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">Services</h2>
+                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                     Everything you need to establish a strong online presence and grow your local business.
                 </p>
             </div>
@@ -39,13 +39,13 @@ export function Services() {
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="group bg-white/60 backdrop-blur-md p-8 rounded-[2rem] border border-gray-100 hover:border-accent/40 hover:bg-white/80 hover:shadow-xl transition-all duration-300"
+                        className="group bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-gray-100 hover:border-accent/40 hover:bg-white/80 hover:shadow-xl transition-all duration-300"
                     >
-                        <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
                             {service.icon}
                         </div>
-                        <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-lg md:text-xl font-bold text-primary mb-3">{service.title}</h3>
+                        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                             {service.description}
                         </p>
                     </div>

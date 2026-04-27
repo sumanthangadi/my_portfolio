@@ -24,8 +24,8 @@ export function Process() {
     return (
         <Section id="process" bg="transparent">
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">My Process</h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">My Process</h2>
+                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                     A simple, completely stress-free experience from our first chat to launch day.
                 </p>
             </div>
@@ -37,8 +37,8 @@ export function Process() {
 
                             <div className="flex flex-col text-left">
                                 <div className="flex-1 mt-2 lg:mt-0">
-                                    <h3 className="text-xl font-bold text-primary mb-3 leading-tight flex items-start lg:justify-center">
-                                        <span className="font-extrabold text-3xl text-gray-500 mr-3 leading-none">{index + 1}.</span>
+                                    <h3 className="text-lg md:text-xl font-bold text-primary mb-3 leading-tight flex items-start lg:justify-center">
+                                        <span className="font-extrabold text-2xl md:text-3xl text-gray-500 mr-3 leading-none">{index + 1}.</span>
                                         <span className="mt-1">{step.title}</span>
                                     </h3>
                                 </div>

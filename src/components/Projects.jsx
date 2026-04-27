@@ -10,24 +10,24 @@ const FannedCards = ({ images }) => {
             {/* Soft shadows and depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 pointer-events-none" />
 
-            <div className="relative w-48 h-[400px] flex items-center justify-center">
+            <div className="relative w-32 md:w-48 h-[300px] md:h-[400px] flex items-center justify-center">
                 {/* Image 1 (Left) */}
-                <div className="absolute w-[200px] aspect-[9/19.5] rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white -rotate-[12deg] -translate-x-16 translate-y-4 hover:z-30 transition-all duration-300">
+                <div className="absolute w-[140px] md:w-[200px] aspect-[9/19.5] rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden shadow-2xl border-[2px] md:border-[3px] border-white -rotate-[12deg] -translate-x-12 md:-translate-x-16 translate-y-4 hover:z-30 transition-all duration-300">
                     <img src={images[2]} alt="App Screen 3" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Image 2 (Right) */}
-                <div className="absolute w-[200px] aspect-[9/19.5] rounded-[1.5rem] overflow-hidden shadow-2xl border-[3px] border-white rotate-[12deg] translate-x-16 translate-y-4 hover:z-30 transition-all duration-300">
+                <div className="absolute w-[140px] md:w-[200px] aspect-[9/19.5] rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden shadow-2xl border-[2px] md:border-[3px] border-white rotate-[12deg] translate-x-12 md:translate-x-16 translate-y-4 hover:z-30 transition-all duration-300">
                     <img src={images[3]} alt="App Screen 4" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Image 3 (Center Back) */}
-                <div className="absolute w-[200px] aspect-[9/19.5] rounded-[2rem] overflow-hidden shadow-xl border-[4px] border-white rotate-0 -translate-y-4 scale-105 hover:z-30 transition-all duration-300">
+                <div className="absolute w-[140px] md:w-[200px] aspect-[9/19.5] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl border-[3px] md:border-[4px] border-white rotate-0 -translate-y-4 scale-105 hover:z-30 transition-all duration-300">
                     <img src={images[1]} alt="App Screen 2" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Image 4 (Main Center / Top) */}
-                <div className="absolute w-[220px] aspect-[9/19.5] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[6px] border-white rotate-0 z-20 hover:scale-110 transition-all duration-500">
+                <div className="absolute w-[160px] md:w-[220px] aspect-[9/19.5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[4px] md:border-[6px] border-white rotate-0 z-20 hover:scale-110 transition-all duration-500">
                     <img src={images[0]} alt="App Screen 1" className="w-full h-full object-cover" />
                 </div>
             </div>
@@ -258,8 +258,8 @@ export function Projects() {
     return (
         <Section id="work" bg="transparent">
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">My Work</h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">My Work</h2>
+                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                     Take a look at some of the recent applications I've built using modern web technologies.
                 </p>
             </div>
@@ -299,8 +299,8 @@ export function Projects() {
                                 )}
                             </div>
 
-                            <div className="p-6 flex-1 flex flex-col">
-                                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                            <div className="p-5 md:p-6 flex-1 flex flex-col">
+                                <h3 className="text-lg md:text-xl font-bold text-primary mb-2">{project.title}</h3>
                                 <p className="text-gray-600 text-sm mb-6 flex-1">{project.description}</p>
                                 <div className="mt-auto">
                                     {project.link && project.link !== '#' ? (
