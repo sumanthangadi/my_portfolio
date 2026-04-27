@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutImage from '../../assets/b.png';
+import aboutImage from '../../assets/myPhoto.jpeg';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { Zap, Smartphone, MapPin } from 'lucide-react';
