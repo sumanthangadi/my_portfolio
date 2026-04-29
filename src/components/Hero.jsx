@@ -21,56 +21,89 @@ function humanDelay(base, jitter) {
 }
 
 function useTypewriter(phrases) {
-    const [phraseIndex, setPhraseIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [firstCycleComplete, setFirstCycleComplete] = useState(false);
-    const timeoutRef = useRef(null);
-
+    const [state, setState] = useState({ phraseIndex: 0, progress: 0, firstCycleComplete: false });
+    
     useEffect(() => {
-        const currentPhrase = phrases[phraseIndex].text;
+        let animationFrameId;
+        let lastTime = performance.now();
+        
+        let phraseIndex = 0;
+        let progress = 0;
+        let phase = 'typing';
+        let firstCycleComplete = false;
+        
+        const TYPE_SPEED_MS_PER_CHAR = 50; 
+        const DELETE_SPEED_MS_PER_CHAR = 25;
+        const PAUSE_AFTER_TYPE = 1500;
+        const PAUSE_AFTER_DELETE = 300;
+        
+        let pauseWaitTime = 0;
 
-        if (!isDeleting) {
-            if (charIndex < currentPhrase.length) {
-                // Typing forward
-                timeoutRef.current = setTimeout(() => {
-                    setCharIndex((prev) => prev + 1);
-                }, humanDelay(TYPE_BASE, TYPE_JITTER));
-            } else {
-                // Fully typed — hold, then start deleting
-                // Mark complete when the first phrase finishes typing
-                if (!firstCycleComplete) {
-                    setFirstCycleComplete(true);
+        const update = (time) => {
+            const delta = time - lastTime;
+            lastTime = time;
+            
+            let shouldUpdateState = false;
+
+            const currentPhraseLength = phrases[phraseIndex].text.length;
+            
+            if (phase === 'typing') {
+                progress += delta / (TYPE_SPEED_MS_PER_CHAR * currentPhraseLength);
+                if (progress >= 1) {
+                    progress = 1;
+                    phase = 'holding';
+                    pauseWaitTime = PAUSE_AFTER_TYPE;
+                    if (!firstCycleComplete) {
+                        firstCycleComplete = true;
+                        shouldUpdateState = true;
+                    }
                 }
-                timeoutRef.current = setTimeout(() => {
-                    setIsDeleting(true);
-                }, PAUSE_AFTER_TYPE);
+                shouldUpdateState = true;
+            } else if (phase === 'holding') {
+                pauseWaitTime -= delta;
+                if (pauseWaitTime <= 0) {
+                    phase = 'deleting';
+                }
+            } else if (phase === 'deleting') {
+                progress -= delta / (DELETE_SPEED_MS_PER_CHAR * currentPhraseLength);
+                if (progress <= 0) {
+                    progress = 0;
+                    phase = 'waiting';
+                    pauseWaitTime = PAUSE_AFTER_DELETE;
+                }
+                shouldUpdateState = true;
+            } else if (phase === 'waiting') {
+                pauseWaitTime -= delta;
+                if (pauseWaitTime <= 0) {
+                    phase = 'typing';
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    shouldUpdateState = true;
+                }
             }
-        } else {
-            if (charIndex > 0) {
-                // Deleting
-                timeoutRef.current = setTimeout(() => {
-                    setCharIndex((prev) => prev - 1);
-                }, humanDelay(DELETE_BASE, DELETE_JITTER));
-            } else {
-                // Fully deleted — advance phrase
-                timeoutRef.current = setTimeout(() => {
-                    setIsDeleting(false);
-                    setPhraseIndex((prev) => (prev + 1) % phrases.length);
-                }, PAUSE_AFTER_DELETE);
+            
+            if (shouldUpdateState) {
+                setState({ phraseIndex, progress, firstCycleComplete });
             }
-        }
+            
+            animationFrameId = requestAnimationFrame(update);
+        };
+        
+        animationFrameId = requestAnimationFrame(update);
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [phrases]);
 
-        return () => clearTimeout(timeoutRef.current);
-    }, [charIndex, isDeleting, phraseIndex, phrases]);
-
-    const displayText = phrases[phraseIndex].text.slice(0, charIndex);
-    return { displayText, accentWord: phrases[phraseIndex].accent, isDeleting, firstCycleComplete };
+    return { 
+        currentPhrase: phrases[state.phraseIndex],
+        progress: state.progress,
+        firstCycleComplete: state.firstCycleComplete
+    };
 }
 
-function TypewriterHeading({ displayText, accentWord, isDeleting }) {
+function TypewriterHeading({ currentPhrase, progress }) {
     const measureRef = useRef(null);
+    const phraseRef = useRef(null);
     const [maxWidth, setMaxWidth] = useState(0);
+    const [phraseWidth, setPhraseWidth] = useState(0);
 
     // Measure the widest phrase once on mount (and on resize)
     useEffect(() => {
@@ -89,32 +122,26 @@ function TypewriterHeading({ displayText, accentWord, isDeleting }) {
         return () => window.removeEventListener('resize', measure);
     }, []);
 
-    // Split displayText into individual characters, each wrapped for CSS animation
-    const renderChars = () => {
-        const chars = displayText.split('');
-        let accentStart = -1;
-        let accentEnd = -1;
-
-        if (accentWord) {
-            const idx = displayText.indexOf(accentWord);
-            if (idx !== -1) {
-                accentStart = idx;
-                accentEnd = idx + accentWord.length;
-            }
+    // Measure current phrase exact width whenever it changes
+    useEffect(() => {
+        if (phraseRef.current) {
+            setPhraseWidth(phraseRef.current.offsetWidth);
         }
+    }, [currentPhrase]);
 
-        return chars.map((char, i) => {
-            const isAccent = i >= accentStart && i < accentEnd && accentStart !== -1;
-            const isLast = i === chars.length - 1 && !isDeleting;
-            return (
-                <span
-                    key={`${i}-${char}`}
-                    className={`typewriter-char${isLast ? ' typewriter-char--new' : ''}${isAccent ? ' text-accent' : ''}`}
-                >
-                    {char === ' ' ? '\u00A0' : char}
-                </span>
-            );
-        });
+    const renderText = (phrase) => {
+        const text = phrase.text;
+        const accent = phrase.accent;
+        if (!accent) return text;
+        const idx = text.indexOf(accent);
+        if (idx === -1) return text;
+        return (
+            <>
+                {text.slice(0, idx)}
+                <span className="text-accent">{accent}</span>
+                {text.slice(idx + accent.length)}
+            </>
+        );
     };
 
     return (
@@ -122,13 +149,20 @@ function TypewriterHeading({ displayText, accentWord, isDeleting }) {
             {/* Hidden measurement container — renders all phrases invisibly to find the widest */}
             <span ref={measureRef} aria-hidden="true" className="typewriter-measure">
                 {PHRASES.map((p, i) => (
-                    <span key={i} className="typewriter-measure-phrase">{p.text}</span>
+                    <span key={i} className="typewriter-measure-phrase">{renderText(p)}</span>
                 ))}
+            </span>
+
+            {/* Hidden measurement for current phrase width */}
+            <span aria-hidden="true" className="typewriter-measure">
+                <span ref={phraseRef} className="typewriter-measure-phrase">{renderText(currentPhrase)}</span>
             </span>
 
             {/* Visible typewriter — fixed width, left-aligned text, centered container */}
             <span className="typewriter-container" style={{ width: maxWidth ? `${maxWidth}px` : 'auto' }}>
-                <span className="typewriter-text">{renderChars()}</span>
+                <span className="typewriter-smooth-wrapper" style={{ width: `${phraseWidth * progress}px` }}>
+                    <span className="typewriter-text">{renderText(currentPhrase)}</span>
+                </span>
                 <span className="typewriter-cursor" aria-hidden="true"></span>
             </span>
         </h1>
@@ -136,7 +170,7 @@ function TypewriterHeading({ displayText, accentWord, isDeleting }) {
 }
 
 export function Hero() {
-    const { displayText, accentWord, isDeleting, firstCycleComplete } = useTypewriter(PHRASES);
+    const { currentPhrase, progress, firstCycleComplete } = useTypewriter(PHRASES);
 
     return (
         <section id="home" className="relative pt-32 pb-40 md:pt-48 md:pb-32 min-h-screen flex items-center overflow-hidden bg-transparent">
@@ -154,7 +188,7 @@ export function Hero() {
                         <span className={`block text-xs md:text-sm font-bold text-accent uppercase tracking-[0.3em] opacity-90 fade-up-element${firstCycleComplete ? ' fade-up-visible' : ''}`}>
                             Achive :
                         </span>
-                        <TypewriterHeading displayText={displayText} accentWord={accentWord} isDeleting={isDeleting} />
+                        <TypewriterHeading currentPhrase={currentPhrase} progress={progress} />
                     </div>
 
                     <p className={`relative z-20 text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed fade-up-element fade-up-delay-1${firstCycleComplete ? ' fade-up-visible' : ''}`}>

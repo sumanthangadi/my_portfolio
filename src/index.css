@@ -106,26 +106,13 @@
   display: inline;
 }
 
-/* Each character wrapper */
-.typewriter-char {
-  display: inline-block;
-  transition: opacity 0.12s ease;
-}
-
-/* Subtle fade-in on the newest character */
-.typewriter-char--new {
-  animation: char-pop 0.15s ease-out;
-}
-
-@keyframes char-pop {
-  0% {
-    opacity: 0.3;
-    transform: translateY(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.typewriter-smooth-wrapper {
+  display: inline-flex;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  /* Will-change helps with smooth sub-pixel animation */
+  will-change: width;
 }
 
 /* Smooth blinking bar cursor */
