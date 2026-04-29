@@ -1,53 +1,50 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { Monitor, RefreshCcw, Search, MessageCircle } from 'lucide-react';
 
 export function Services() {
     const services = [
         {
             title: 'Business Website Development',
-            description: 'Custom, fast-loading, mobile-friendly websites built from scratch to represent your brand perfectly.',
-            icon: <Monitor className="w-8 h-8 text-accent" />,
+            description: 'Custom, fast-loading websites built from scratch for your brand.',
         },
         {
             title: 'Website Redesign',
-            description: 'Modernize your old website with a fresh look, better performance, and improved user experience.',
-            icon: <RefreshCcw className="w-8 h-8 text-accent" />,
+            description: 'Modernize your old website with a fresh look and better performance.',
         },
         {
             title: 'Google Business Optimization',
-            description: 'Make your local business rank higher on Google Maps and search results to attract nearby customers.',
-            icon: <Search className="w-8 h-8 text-accent" />,
+            description: 'Rank higher on Google Maps to attract nearby customers.',
         },
         {
             title: 'WhatsApp Integration',
-            description: 'Connect your website directly to your WhatsApp to chat with potential customers instantly.',
-            icon: <MessageCircle className="w-8 h-8 text-accent" />,
+            description: 'Connect your site to WhatsApp to chat with customers instantly.',
         },
     ];
 
     return (
-        <Section id="services" bg="light">
-            <div className="text-center mb-16">
-                <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">Services</h2>
-                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        <Section id="services" bg="light" className="!py-8 md:!py-16">
+            <div className="mb-6 md:mb-10 text-center sm:text-left">
+                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-2">Services</h2>
+                <p className="text-sm md:text-lg text-gray-600 max-w-2xl">
                     Everything you need to establish a strong online presence and grow your local business.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8">
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="group bg-white/60 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-gray-100 hover:border-accent/40 hover:bg-white/80 hover:shadow-xl transition-all duration-300"
+                        className="group flex items-start gap-4 text-left py-2 border-b border-gray-200/50 last:border-0 md:border-0"
                     >
-                        <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
-                            {service.icon}
+                        <span className="text-2xl md:text-3xl font-black text-accent/80 mt-1 md:mt-0">
+                            0{index + 1}
+                        </span>
+                        <div>
+                            <h3 className="text-base md:text-xl font-bold text-primary mb-1">{service.title}</h3>
+                            <p className="text-sm text-gray-600 leading-snug">
+                                {service.description}
+                            </p>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold text-primary mb-3">{service.title}</h3>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                            {service.description}
-                        </p>
                     </div>
                 ))}
             </div>
