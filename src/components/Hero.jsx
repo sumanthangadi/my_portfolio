@@ -32,10 +32,10 @@ function useTypewriter(phrases) {
         let phase = 'typing';
         let firstCycleComplete = false;
         
-        const TYPE_SPEED_MS_PER_CHAR = 50; 
-        const DELETE_SPEED_MS_PER_CHAR = 25;
-        const PAUSE_AFTER_TYPE = 1500;
-        const PAUSE_AFTER_DELETE = 300;
+        const TYPE_SPEED_MS_PER_CHAR = 65; 
+        const DELETE_SPEED_MS_PER_CHAR = 35;
+        const PAUSE_AFTER_TYPE = 1800;
+        const PAUSE_AFTER_DELETE = 500;
         
         let pauseWaitTime = 0;
 

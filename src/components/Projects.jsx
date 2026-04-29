@@ -231,16 +231,25 @@ export function Projects() {
 
     const projects = [
         {
-            title: 'travel Agency',
+            title: 'Habit Tracker App',
+            description: 'A cross-platform ecosystem to track your daily habits and tasks, available as a web and mobile app.',
+            longDescription: 'A comprehensive full-stack habit tracking ecosystem built for modern users. It features both a responsive web dashboard and a dedicated mobile application, allowing seamless synchronization of daily habits, task management, and progress statistics across all your devices.',
+            image: '/habit-tracker.png',
+            fanned: false,
+            hideCaseStudy: false,
+            link: 'https://habit-tracker-public-one.vercel.app/today'
+        },
+        {
+            title: 'VOYA - Travel Agency',
             description: 'A modern, cinematic travel agency website with scroll-driven animations.',
-            image: 'https://placehold.co/800x600/ffffff/111827?text=VOYA+-+Travel+agency+websites',
+            image: '/voya.png',
             link: 'https://travel-agency-ochre-six.vercel.app/',
             hideCaseStudy: true
         },
         {
-            title: 'Noir Studio (A Saloon Website)',
+            title: 'Noir Studio (Salon Website)',
             description: 'Elegant local salon site with booking integration.',
-            image: 'https://placehold.co/800x600/ffffff/111827?text=Noir+Studio+(A+Saloon+Website)',
+            image: '/noir.png',
             link: 'https://noir-studio-three.vercel.app/',
             hideCaseStudy: true
         },
