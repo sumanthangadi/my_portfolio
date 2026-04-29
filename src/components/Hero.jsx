@@ -38,8 +38,8 @@ function useTypewriter(phrases) {
                 }, humanDelay(TYPE_BASE, TYPE_JITTER));
             } else {
                 // Fully typed — hold, then start deleting
-                // Mark first cycle complete when the last phrase finishes typing
-                if (phraseIndex === phrases.length - 1 && !firstCycleComplete) {
+                // Mark complete when the first phrase finishes typing
+                if (!firstCycleComplete) {
                     setFirstCycleComplete(true);
                 }
                 timeoutRef.current = setTimeout(() => {
@@ -151,18 +151,18 @@ export function Hero() {
                 {/* Content */}
                 <div className="flex flex-col space-y-6 md:space-y-10 relative">
                     <div className="space-y-2 relative z-20">
-                        <span className="block text-xs md:text-sm font-bold text-accent uppercase tracking-[0.3em] opacity-90">
+                        <span className={`block text-xs md:text-sm font-bold text-accent uppercase tracking-[0.3em] opacity-90 fade-up-element${firstCycleComplete ? ' fade-up-visible' : ''}`}>
                             Achive :
                         </span>
                         <TypewriterHeading displayText={displayText} accentWord={accentWord} isDeleting={isDeleting} />
                     </div>
 
-                    <p className={`relative z-20 text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed fade-up-element${firstCycleComplete ? ' fade-up-visible' : ''}`}>
+                    <p className={`relative z-20 text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed fade-up-element fade-up-delay-1${firstCycleComplete ? ' fade-up-visible' : ''}`}>
                         Fast, mobile-first, and built to attract more customers. <br className="hidden md:block" />
                         Professional solutions delivered at lightning speed.
                     </p>
 
-                    <div className={`order-4 md:order-none relative z-20 flex flex-col sm:flex-row justify-center gap-4 pt-4 fade-up-element fade-up-delay-1${firstCycleComplete ? ' fade-up-visible' : ''}`}>
+                    <div className={`order-4 md:order-none relative z-20 flex flex-col sm:flex-row justify-center gap-4 pt-4 fade-up-element fade-up-delay-2${firstCycleComplete ? ' fade-up-visible' : ''}`}>
                         <a href="#work">
                             <Button variant="primary" className="w-full sm:w-auto text-base md:text-lg py-3 md:py-4 px-8 md:px-10 group">
                                 View My Work
@@ -176,7 +176,7 @@ export function Hero() {
                         </a>
                     </div>
 
-                    <div className={`order-3 md:order-none relative z-20 pt-6 flex items-center justify-center space-x-2 text-sm text-gray-500 font-medium fade-up-element fade-up-delay-2${firstCycleComplete ? ' fade-up-visible' : ''}`}>
+                    <div className={`order-3 md:order-none relative z-20 pt-6 flex items-center justify-center space-x-2 text-sm text-gray-500 font-medium fade-up-element fade-up-delay-3${firstCycleComplete ? ' fade-up-visible' : ''}`}>
                         <span className="text-2xl">🚀</span>
                         <span className="text-base md:text-lg font-semibold text-accent">Launch Your Professional Website This Week</span>
                     </div>
