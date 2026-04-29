@@ -81,37 +81,37 @@ export function Contact() {
                             href="https://wa.me/919343337788?text=Hay%20Sumanth%2C%20Let%27s%20work%20together."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
+                            className="flex items-center p-4 sm:p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
                         >
-                            <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
-                                <MessageCircle size={28} />
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-green-50 rounded-xl flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
+                                <MessageCircle size={28} className="w-6 h-6 sm:w-7 sm:h-7" />
                             </div>
-                            <div className="ml-6 flex-1">
-                                <h3 className="text-lg font-bold text-primary mb-1">WhatsApp Me</h3>
-                                <p className="text-gray-500">I usually reply within an hour</p>
+                            <div className="ml-4 sm:ml-6 flex-1 min-w-0">
+                                <h3 className="text-base sm:text-lg font-bold text-primary mb-1">WhatsApp Me</h3>
+                                <p className="text-sm sm:text-base text-gray-500 truncate">I usually reply within an hour</p>
                             </div>
-                            <div className="text-green-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                            <div className="text-green-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all ml-2">
                                 &rarr;
                             </div>
                         </a>
 
                         <a
                             href="mailto:sumanthangadi7@gmail.com"
-                            className="flex items-center p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
+                            className="flex items-center p-4 sm:p-6 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-gray-100 hover:border-accent/40 hover:shadow-md transition-all duration-300 group"
                         >
-                            <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
-                                <Mail size={28} />
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                                <Mail size={28} className="w-6 h-6 sm:w-7 sm:h-7" />
                             </div>
-                            <div className="ml-6 flex-1">
-                                <h3 className="text-lg font-bold text-primary mb-1">Email Me</h3>
-                                <p className="text-gray-500">sumanthangadi7@gmail.com</p>
+                            <div className="ml-4 sm:ml-6 flex-1 min-w-0">
+                                <h3 className="text-base sm:text-lg font-bold text-primary mb-1">Email Me</h3>
+                                <p className="text-sm sm:text-base text-gray-500 break-all">sumanthangadi7@gmail.com</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 {/* Contact Form Placeholder */}
-                <div className="bg-white/80 backdrop-blur-md p-8 md:p-10 rounded-[2rem] shadow-xl border border-gray-100 relative max-w-lg w-full mx-auto lg:ml-auto">
+                <div className="bg-white/80 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-3xl sm:rounded-[2rem] shadow-xl border border-gray-100 relative max-w-lg w-full mx-auto lg:ml-auto">
                     <div className="absolute top-0 right-0 -mr-6 -mt-6 w-24 h-24 bg-accent/20 rounded-full blur-2xl z-0"></div>
 
                     <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>

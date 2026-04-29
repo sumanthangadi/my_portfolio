@@ -99,6 +99,7 @@
 .typewriter-container {
   display: inline-block;
   text-align: left;
+  white-space: nowrap;
 }
 
 .typewriter-text {
