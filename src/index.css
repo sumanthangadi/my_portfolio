@@ -72,3 +72,76 @@
   100% { transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
+/* ── Typewriter ─────────────────────────────────── */
+
+/* Prevent layout shift while phrases change */
+.typewriter-heading {
+  min-height: 1.2em;
+}
+
+/* Hidden measurement spans — used to find the widest phrase */
+.typewriter-measure {
+  position: absolute;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.typewriter-measure-phrase {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Fixed-width container, centered via inline-block + parent text-center.
+   Text inside is left-aligned so it grows rightward without shifting. */
+.typewriter-container {
+  display: inline-block;
+  text-align: left;
+}
+
+.typewriter-text {
+  display: inline;
+}
+
+/* Each character wrapper */
+.typewriter-char {
+  display: inline-block;
+  transition: opacity 0.12s ease;
+}
+
+/* Subtle fade-in on the newest character */
+.typewriter-char--new {
+  animation: char-pop 0.15s ease-out;
+}
+
+@keyframes char-pop {
+  0% {
+    opacity: 0.3;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth blinking bar cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 4px;
+  vertical-align: baseline;
+  position: relative;
+  top: 0.05em;
+  background: currentColor;
+  border-radius: 2px;
+  animation: blink-cursor 1s ease-in-out infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

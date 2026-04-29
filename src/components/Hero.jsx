@@ -1,6 +1,135 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/Button';
 import { ArrowRight } from 'lucide-react';
+
+const PHRASES = [
+    { text: 'More Visibility.', accent: null },
+    { text: 'More Bookings.', accent: 'Bookings' },
+    { text: 'More Revenue.', accent: null },
+];
+
+// Humanistic typing: base speed + random jitter so it feels natural
+const TYPE_BASE = 90;
+const TYPE_JITTER = 50;       // actual range: 90-140ms
+const DELETE_BASE = 45;
+const DELETE_JITTER = 20;     // actual range: 45-65ms
+const PAUSE_AFTER_TYPE = 2200;
+const PAUSE_AFTER_DELETE = 500;
+
+function humanDelay(base, jitter) {
+    return base + Math.random() * jitter;
+}
+
+function useTypewriter(phrases) {
+    const [phraseIndex, setPhraseIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const timeoutRef = useRef(null);
+
+    useEffect(() => {
+        const currentPhrase = phrases[phraseIndex].text;
+
+        if (!isDeleting) {
+            if (charIndex < currentPhrase.length) {
+                // Typing forward
+                timeoutRef.current = setTimeout(() => {
+                    setCharIndex((prev) => prev + 1);
+                }, humanDelay(TYPE_BASE, TYPE_JITTER));
+            } else {
+                // Fully typed — hold, then start deleting
+                timeoutRef.current = setTimeout(() => {
+                    setIsDeleting(true);
+                }, PAUSE_AFTER_TYPE);
+            }
+        } else {
+            if (charIndex > 0) {
+                // Deleting
+                timeoutRef.current = setTimeout(() => {
+                    setCharIndex((prev) => prev - 1);
+                }, humanDelay(DELETE_BASE, DELETE_JITTER));
+            } else {
+                // Fully deleted — advance phrase
+                timeoutRef.current = setTimeout(() => {
+                    setIsDeleting(false);
+                    setPhraseIndex((prev) => (prev + 1) % phrases.length);
+                }, PAUSE_AFTER_DELETE);
+            }
+        }
+
+        return () => clearTimeout(timeoutRef.current);
+    }, [charIndex, isDeleting, phraseIndex, phrases]);
+
+    const displayText = phrases[phraseIndex].text.slice(0, charIndex);
+    return { displayText, accentWord: phrases[phraseIndex].accent, isDeleting };
+}
+
+function TypewriterHeading() {
+    const { displayText, accentWord, isDeleting } = useTypewriter(PHRASES);
+    const measureRef = useRef(null);
+    const [maxWidth, setMaxWidth] = useState(0);
+
+    // Measure the widest phrase once on mount (and on resize)
+    useEffect(() => {
+        function measure() {
+            if (!measureRef.current) return;
+            const hiddenSpans = measureRef.current.querySelectorAll('.typewriter-measure-phrase');
+            let widest = 0;
+            hiddenSpans.forEach((span) => {
+                widest = Math.max(widest, span.offsetWidth);
+            });
+            // Add a small buffer for the cursor
+            setMaxWidth(widest + 12);
+        }
+        measure();
+        window.addEventListener('resize', measure);
+        return () => window.removeEventListener('resize', measure);
+    }, []);
+
+    // Split displayText into individual characters, each wrapped for CSS animation
+    const renderChars = () => {
+        const chars = displayText.split('');
+        let accentStart = -1;
+        let accentEnd = -1;
+
+        if (accentWord) {
+            const idx = displayText.indexOf(accentWord);
+            if (idx !== -1) {
+                accentStart = idx;
+                accentEnd = idx + accentWord.length;
+            }
+        }
+
+        return chars.map((char, i) => {
+            const isAccent = i >= accentStart && i < accentEnd && accentStart !== -1;
+            const isLast = i === chars.length - 1 && !isDeleting;
+            return (
+                <span
+                    key={`${i}-${char}`}
+                    className={`typewriter-char${isLast ? ' typewriter-char--new' : ''}${isAccent ? ' text-accent' : ''}`}
+                >
+                    {char === ' ' ? '\u00A0' : char}
+                </span>
+            );
+        });
+    };
+
+    return (
+        <h1 className="relative z-20 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary leading-tight typewriter-heading">
+            {/* Hidden measurement container — renders all phrases invisibly to find the widest */}
+            <span ref={measureRef} aria-hidden="true" className="typewriter-measure">
+                {PHRASES.map((p, i) => (
+                    <span key={i} className="typewriter-measure-phrase">{p.text}</span>
+                ))}
+            </span>
+
+            {/* Visible typewriter — fixed width, left-aligned text, centered container */}
+            <span className="typewriter-container" style={{ width: maxWidth ? `${maxWidth}px` : 'auto' }}>
+                <span className="typewriter-text">{renderChars()}</span>
+                <span className="typewriter-cursor" aria-hidden="true"></span>
+            </span>
+        </h1>
+    );
+}
 
 export function Hero() {
     return (
@@ -19,9 +148,7 @@ export function Hero() {
                         <span className="block text-xs md:text-sm font-bold text-accent uppercase tracking-[0.3em] opacity-90">
                             Achive :
                         </span>
-                        <h1 className="relative z-20 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary leading-tight">
-                            More Visibility. <br className="hidden md:block" /> More <span className="text-accent">Bookings</span>. More Revenue.
-                        </h1>
+                        <TypewriterHeading />
                     </div>
 
                     <p className="relative z-20 text-lg md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
