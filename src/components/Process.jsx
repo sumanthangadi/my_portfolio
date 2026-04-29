@@ -25,9 +25,6 @@ export function Process() {
         <Section id="process" bg="transparent">
             <div className="text-center mb-16">
                 <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">My Process</h2>
-                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                    A simple, completely stress-free experience from our first chat to launch day.
-                </p>
             </div>
 
             <div className="relative">

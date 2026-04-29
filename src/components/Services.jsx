@@ -22,28 +22,21 @@ export function Services() {
     ];
 
     return (
-        <Section id="services" bg="light" className="!py-8 md:!py-16">
-            <div className="mb-6 md:mb-10 text-center sm:text-left">
-                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-2">Services</h2>
-                <p className="text-sm md:text-lg text-gray-600 max-w-2xl">
-                    Everything you need to establish a strong online presence and grow your local business.
-                </p>
+        <Section id="services" bg="light">
+            <div className="text-center mb-16">
+                <h2 className="text-2xl md:text-5xl font-bold text-primary mb-4">Services</h2>
             </div>
 
-            <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
                 {services.map((service, index) => (
-                    <div
-                        key={index}
-                        className="group flex items-start gap-4 text-left py-2 border-b border-gray-200/50 last:border-0 md:border-0"
-                    >
-                        <span className="text-2xl md:text-3xl font-black text-accent/80 mt-1 md:mt-0">
-                            0{index + 1}
-                        </span>
-                        <div>
-                            <h3 className="text-base md:text-xl font-bold text-primary mb-1">{service.title}</h3>
-                            <p className="text-sm text-gray-600 leading-snug">
-                                {service.description}
-                            </p>
+                    <div key={index} className="relative group">
+                        <div className="flex flex-col text-left">
+                            <div className="flex-1 mt-2 lg:mt-0">
+                                <h3 className="text-lg md:text-xl font-bold text-primary mb-3 leading-tight flex items-start">
+                                    <span className="font-extrabold text-2xl md:text-3xl text-gray-500 mr-3 leading-none">{index + 1}.</span>
+                                    <span className="mt-1">{service.title}</span>
+                                </h3>
+                            </div>
                         </div>
                     </div>
                 ))}
