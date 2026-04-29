@@ -9,12 +9,12 @@ const PHRASES = [
 ];
 
 // Humanistic typing: base speed + random jitter so it feels natural
-const TYPE_BASE = 90;
-const TYPE_JITTER = 50;       // actual range: 90-140ms
-const DELETE_BASE = 45;
-const DELETE_JITTER = 20;     // actual range: 45-65ms
-const PAUSE_AFTER_TYPE = 2200;
-const PAUSE_AFTER_DELETE = 500;
+const TYPE_BASE = 50;
+const TYPE_JITTER = 30;       // actual range: 50-80ms
+const DELETE_BASE = 25;
+const DELETE_JITTER = 15;     // actual range: 25-40ms
+const PAUSE_AFTER_TYPE = 1500;
+const PAUSE_AFTER_DELETE = 300;
 
 function humanDelay(base, jitter) {
     return base + Math.random() * jitter;
