@@ -179,7 +179,7 @@ export function Hero() {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-pulse">
+            <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-center animate-pulse">
                 <span className="text-xs uppercase tracking-[0.2em] text-accent font-bold">Scroll to view more</span>
                 <div className="w-px h-12 bg-gradient-to-b from-accent to-transparent mt-4"></div>
             </div>
